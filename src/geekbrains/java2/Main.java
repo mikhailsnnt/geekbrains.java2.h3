@@ -1,12 +1,18 @@
 package geekbrains.java2;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
 
     public static void main(String[] args) {
-        //Task 1:
+        task1Demo();
+        System.out.println("\n\n");
+        task2Demo();
+
+    }
+    private static void task1Demo(){
         String[] words = new String[]{
                 "Hello","Some","Some","world","other","other","world","Hi!","hashmap","hashmap","hashmap",
                 "java.util","java.util","java.util"
@@ -26,7 +32,30 @@ public class Main {
                 map.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
-        //Task 2:
-
+    }
+    private static void task2Demo(){
+        PhoneDirectory phoneDirectory = new PhoneDirectory();
+        phoneDirectory.add("Vasya","+793");
+        phoneDirectory.add("Vasya","+794");
+        Collection<String> numbers = phoneDirectory.getNumbers("Vasya");
+        if(numbers == null)
+            System.out.println("Vasya not in phone book!");
+        else{
+            System.out.println("Vasya numbers: ");
+            for (String number :
+                    numbers) {
+                System.out.println(number);
+            }
+        }
+        numbers = phoneDirectory.getNumbers("Petya");
+        if(numbers == null)
+            System.out.println("Petya not in phone book!");
+        else{
+            System.out.println("Petya numbers: ");
+            for (String number :
+                    numbers) {
+                System.out.println(number);
+            }
+        }
     }
 }
